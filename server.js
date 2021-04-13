@@ -32,13 +32,11 @@ const addBook = (request, response) => {
     },
   )
 }
+app.get('/', (request, response) => {
+  response.json({test: `Home GET request is functioning properly`})
+})
 
-app
-  .route('/books')
-  // GET endpoint
-  .get(getBooks)
-  // POST endpoint
-  .post(addBook)
+app.get('/books', getBooks)
 
 // Start server
 app.listen(process.env.PORT || 3002, () => {
